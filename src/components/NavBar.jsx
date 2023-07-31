@@ -1,26 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
-import ItemListContainer from './ItemListContainer'; // Importa el componente ItemListContainer
 
 const NavBar = () => {
-  const [showCatalog, setShowCatalog] = useState(false);
-
-  const handleCatalogClick = () => {
-    setShowCatalog(true);
-  };
-
   return (
     <nav>
       <ul>
         <li><Link to="/">Inicio</Link></li>
-        <li><Link to="/category/iphone" onClick={handleCatalogClick}>Productos</Link></li>
+        <li>
+          <div>
+            <span>Productos</span>
+            <ul>
+              <li>
+                <Link to="/category/Nuevos%20Ingresos">Nuevos Ingresos</Link>
+              </li>
+              <li>
+                <Link to="/category/Laptops">Laptops</Link>
+              </li>
+              <li>
+                <Link to="/category/Tablets">Tablets</Link>
+              </li>
+            </ul>
+          </div>
+        </li>
         <li><Link to="/contacto">Contacto</Link></li>
         <li>
           <CartWidget />
         </li>
       </ul>
-      <ItemListContainer greeting="¡Bienvenido!" showCatalog={showCatalog} />
     </nav>
   );
 };

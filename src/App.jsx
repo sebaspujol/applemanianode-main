@@ -3,7 +3,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import Contact from './components/Contact'; // Importa el componente Contact
+import Contact from './components/Contact';
+import './App.css';
+
 
 const App = () => {
   return (
@@ -11,11 +13,10 @@ const App = () => {
       <div>
         <NavBar />
         <Routes>
-          <Route exact path="/" element={<ItemListContainer />} />
-          <Route exact path="/category/:id" element={<ItemListContainer />} />
-          <Route exact path="/item/:id" element={<ItemDetailContainer />} />
-          <Route exact path="/contacto" element={<Contact />} /> {/* Nueva ruta */}
-          <Route exact path="/category/nuevos-ingresos" element={<ItemListContainer greeting="Nuevos Ingresos" />} />
+          <Route exact path="/" element={<ItemListContainer greeting="¡Bienvenido!" />} />
+          <Route exact path="/category/:selectedCategory" element={<ItemListContainer greeting="¡Bienvenido!" />} />
+          <Route exact path="/item/:itemId" element={<ItemDetailContainer />} />
+          <Route exact path="/contacto" element={<Contact />} />
         </Routes>
       </div>
     </BrowserRouter>
